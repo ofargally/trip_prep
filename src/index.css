@@ -304,3 +304,9 @@ footer {
   opacity: 0.5;
   margin-top: 12px;
 }
+
+.error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 8px;
+}

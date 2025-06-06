@@ -1,4 +1,4 @@
-import { initialItems, secondaryButtons } from "../lib/constants";
+import { initialItems } from "../lib/constants";
 import Button from "./Button";
 
 export default function ButtonGroup({ setItems }) {
@@ -27,27 +27,29 @@ export default function ButtonGroup({ setItems }) {
   const handleRemoveAllItems = () => {
     setItems([]);
   };
-
-  const handleButtonClick = (text) => {
-    if (text === "Mark all as complete") {
-      return handleMarkAllCompleted;
-    }
-    if (text === "Mark all as incomplete") {
-      return handleMarkAllIncomplete;
-    }
-    if (text === "Reset to initial") {
-      return handleResetToInitial;
-    }
-    if (text === "Remove all items") {
-      return handleRemoveAllItems;
-    }
-    return;
-  };
+  const secondaryButtons = [
+    {
+      text: "Mark all as complete",
+      handler: handleMarkAllCompleted,
+    },
+    {
+      text: "Mark all as incomplete",
+      handler: handleMarkAllIncomplete,
+    },
+    {
+      text: "Reset to initial",
+      handler: handleResetToInitial,
+    },
+    {
+      text: "Remove all items",
+      handler: handleRemoveAllItems,
+    },
+  ];
   return (
     <section className="button-group">
-      {secondaryButtons.map((text) => {
+      {secondaryButtons.map(({ text, handler }) => {
         return (
-          <Button onClick={handleButtonClick(text)} key={text} type="secondary">
+          <Button onClick={handler} key={text} type="secondary">
             {text}
           </Button>
         );

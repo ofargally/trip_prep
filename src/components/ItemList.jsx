@@ -1,11 +1,15 @@
 //ul -> unordered list, ol -> ordered list
 
+import EmptyView from "./EmptyView";
+
 export default function ItemList({ setItems, items }) {
   return (
-    <ul>
-      {items.map((item) => {
-        return <Item setItems={setItems} key={item.id} item={item} />;
-      })}
+    <ul className="item-list">
+      {items.length === 0 && <EmptyView />}
+      {items &&
+        items.map((item) => {
+          return <Item setItems={setItems} key={item.id} item={item} />;
+        })}
     </ul>
   );
 }
