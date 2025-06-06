@@ -8,12 +8,14 @@ import { initialItems } from "./lib/constants";
 
 function App() {
   const [items, setItems] = useState(initialItems);
+  const numItemsPacked = items.filter((item) => item.packed).length;
+  const totalItems = items.length;
   console.log(items);
   return (
     <>
       <BackgroundHeading />
       <main>
-        <Header />
+        <Header totalItems={totalItems} numItemsPacked={numItemsPacked} />
         <ItemList setItems={setItems} items={items} />
         <SideBar setItems={setItems} />
       </main>

@@ -5,7 +5,7 @@ export default function SideBar({ setItems }) {
   return (
     <div className="sidebar">
       <AddItemForm setItems={setItems} />
-      <ButtonGroup />
+      <ButtonGroup setItems={setItems} />
     </div>
   );
 }
